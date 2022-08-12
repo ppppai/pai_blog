@@ -40,7 +40,11 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true #文章插入图片 ture:相对路径 flase:绝对路径
+#post_asset_folder: true #文章插入图片 ture:相对路径 flase:绝对路径
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
 relative_link: false
 future: true
 highlight:
