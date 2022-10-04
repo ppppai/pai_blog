@@ -1,11 +1,13 @@
 ---
-title: V2rayA在linux下安装使用教程
+title: V2rayA安装使用教程
 categories:
   - null
 tags:
   - V2rayA
 date: 2022-10-04 14:25:10
 ---
+
+[原文地址](https://zhuanlan.zhihu.com/p/414998586)
 
 在安装ROS和其它很多的网站时，代理能方便许多，因此写了一个初步的教程。
 
