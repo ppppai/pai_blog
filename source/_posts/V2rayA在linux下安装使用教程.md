@@ -1,3 +1,12 @@
+---
+title: V2rayA在linux下安装使用教程
+categories:
+  - null
+tags:
+  - V2rayA
+date: 2022-10-04 14:25:10
+---
+
 在安装ROS和其它很多的网站时，代理能方便许多，因此写了一个初步的教程。
 
 在这个网站里，有着很详细的安装步骤。
@@ -75,13 +84,13 @@ sudo systemctl enable v2raya.service
 
 ## 3.创建账号
 
-![](../_resources/v2-e50d8d16f746ea596f3f157ca4e0b_a65d520723a74dc98.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-e50d8d16f746ea596f3f157ca4e0b_a65d520723a74dc98.jpg)
 
 在第一次进入页面时，你需要创建一个管理员账号，请妥善保管你的用户名密码，如果遗忘，使用`sudo v2raya --reset-password`命令重置。
 
 ## **4.导入节点**
 
-![](../_resources/v2-748385ba1e2960d44d51e80502d5e_9732ade20c1944d3a.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-748385ba1e2960d44d51e80502d5e_9732ade20c1944d3a.jpg)
 
 以创建或导入的方式导入节点，导入支持节点链接、订阅链接、扫描二维码和批量导入等方式。
 
@@ -89,21 +98,21 @@ sudo systemctl enable v2raya.service
 
 ### 连接节点
 
-![](../_resources/v2-14c6d4ee3dd29d78374f296afbedd_baf42fa9b4e74b2ea.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-14c6d4ee3dd29d78374f296afbedd_baf42fa9b4e74b2ea.jpg)
 
 导入成功后，节点将显示在 `SERVER` 或新的标签中。如图是导入了一个订阅后的界面。
 
-![](../_resources/v2-91fac87fa097a634f67b0bec2eac1_2b6310dcc01248dfa.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-91fac87fa097a634f67b0bec2eac1_2b6310dcc01248dfa.jpg)
 
 切换到该标签页，选择一个或多个节点连接。这里不建议选择过多的节点，6 个以内为佳。
 
 ### 启动服务
 
-![](../_resources/v2-990905d7a51d7a2a553feba1d5e9a_e1243bee7f4b4435b.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-990905d7a51d7a2a553feba1d5e9a_e1243bee7f4b4435b.jpg)
 
 在未启动服务时，连接的节点呈现柚红色。我们在左上角点击相应按钮启动服务。
 
-![](../_resources/v2-3c3e839830071779a65579afd0042_aa05120f8b8b4ee19.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-3c3e839830071779a65579afd0042_aa05120f8b8b4ee19.jpg)
 
 在启动服务后，所连接的节点呈现蓝色，左上角的图标也显示为蓝色的正在运行，代表服务启动成功
 
@@ -117,7 +126,7 @@ sudo systemctl enable v2raya.service
 
 ### 1.透明代理
 
-![](../_resources/v2-01b4470eaac3b927397e58d109bec_818c7844a3e649f8b.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-01b4470eaac3b927397e58d109bec_818c7844a3e649f8b.jpg)
 
 这种方法是 v2rayA 推荐的方法。它相比于其他方法具有诸多优势，v2rayA 可以一键开启透明代理，为**几乎所有程序**提供代理服务。
 
@@ -135,21 +144,21 @@ SwitchyOmega 等浏览器插件可为**浏览器**提供代理服务。
 
 在所使用的浏览器上安装插件
 
-![](../_resources/v2-1dae8e342775d8f26ca4fff259e8a_9936d7fa162d40cea.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-1dae8e342775d8f26ca4fff259e8a_9936d7fa162d40cea.jpg)
 
 按照下图进行配置，并应用配置
 
-![](../_resources/v2-784b84e5cbee84525097367285899_9b50cb057bef49f49.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-784b84e5cbee84525097367285899_9b50cb057bef49f49.jpg)
 
 在v2rayA右上角的设置中查看端口信息
 
-![](../_resources/v2-9bfbd08bbeee4e6b5d8f3d3090119_aa2cc44ecfe64fb3b.png)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-9bfbd08bbeee4e6b5d8f3d3090119_aa2cc44ecfe64fb3b.png)
 
-![](../_resources/v2-b422e3287271a93308e9489b43f0a_a7427a9d56b54dc7a.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-b422e3287271a93308e9489b43f0a_a7427a9d56b54dc7a.jpg)
 
 在浏览器代理软件中，设置代理方式
 
-![](../_resources/v2-9a81104a1cb1b5a0446a11b6ad7df_c9f470ad1b414e488.jpg)
+![](../../../AAAAAAAAAAAAAAAAAAAAA/_resources/v2-9a81104a1cb1b5a0446a11b6ad7df_c9f470ad1b414e488.jpg)
 
 ## **4.linux客户端代理**
 
