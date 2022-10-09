@@ -51,7 +51,7 @@ sudo apt update
 
 ### 安装 V2RayA
 
-```sudo apt install v2raya
+```
 sudo apt install v2raya
 ```
 
