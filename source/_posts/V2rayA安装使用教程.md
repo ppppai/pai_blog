@@ -51,6 +51,10 @@ sudo apt update
 
 ### 安装 V2RayA
 
+```sudo apt install v2raya
+sudo apt install v2raya
+```
+
 ### 方法二：手动安装 deb 包
 
 [下载 deb 包](https://link.zhihu.com/?target=https%3A//github.com/v2rayA/v2rayA/releases)
