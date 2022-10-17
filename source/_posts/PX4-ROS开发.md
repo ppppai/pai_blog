@@ -8,9 +8,11 @@ tags:
 date: 2022-10-17 21:34:55
 ---
 
-## offboard控制
-
 [参考博客](https://www.cnblogs.com/cporoske/p/11641477.html)
+
+[视频教程](https://www.bilibili.com/video/BV1ib4y1q7DJ/?spm_id_from=333.999.0.0&vd_source=c580acb208d0cf11f651aa5bf3869e1c)
+
+## offboard控制
 
 ### 1.创建工作空间
 
@@ -129,7 +131,7 @@ catkin_make
 
 ### 3.运行仿真
 
-等待编译完成后，如果你要在`gazebo`中仿真，运行命令
+等待编译完成后，如果你要在`gazebo`中仿真，在 PX4 中运行命令
 
 ```bash
 make px4_sitl gazebo_iris
@@ -143,9 +145,11 @@ make px4_sitl gazebo_iris
 roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 ```
 
-启动`PX4`与`Mavros`之间的连接，然后运行命令
+启动`PX4`与`Mavros`之间的连接，然后在`catkin_ws`运行命令
 
 ```bash
+catkin_make
+source ~/.bashrc
 rosrun offboard_pkg offboard_node
 ```
 
