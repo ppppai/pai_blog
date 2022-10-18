@@ -1,4 +1,5 @@
 ---
+​---
 title: PX4+ROS开发
 categories:
   - PX4
@@ -6,7 +7,8 @@ tags:
   - PX4
   - ROS
 date: 2022-10-17 21:34:55
----
+
+​---
 
 [参考博客](https://www.cnblogs.com/cporoske/p/11641477.html)
 
@@ -168,3 +170,4 @@ rosrun offboard_pkg offboard_node
 ```
 
 然后进入`gazebo`中进行观察。
+---
