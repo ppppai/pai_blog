@@ -12,6 +12,8 @@ date: 2022-10-17 21:34:55
 
 [视频教程](https://www.bilibili.com/video/BV1ib4y1q7DJ/?spm_id_from=333.999.0.0&vd_source=c580acb208d0cf11f651aa5bf3869e1c)
 
+### 注意：路径要用自己的路径
+
 ## offboard控制
 
 ### 1.创建工作空间
@@ -20,7 +22,19 @@ date: 2022-10-17 21:34:55
 
 ### 2.创建文件
 
+在`catkin_ws/src`目录中，运行命令
+
+```c++
+catkin_create_pkg offboard_pkg roscpp std_msgs geometry_msgs mavros_msgs
+```
+
 然后定位到目录`~/catkin_ws/src/offboard_pkg/src/`，新建一个文件`offboard_node.cpp`。
+
+```
+touch offboard_node.cpp
+```
+
+打开文件使用`gedit`命令
 
 将代码复制进去(官方示例):
 
@@ -126,7 +140,7 @@ target_link_libraries(offboard_node ${catkin_LIBRARIES})
 
 ```c++
 catkin_make
-//博客原文写的是 catkin build
+//博客原文写的是 catkin build 原因是作者在创建空间的时候使用的是 build 
 ```
 
 ### 3.运行仿真
