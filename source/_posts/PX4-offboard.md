@@ -168,3 +168,23 @@ rosrun offboard_pkg offboard_node
 ```
 
 然后进入`gazebo`中进行观察。
+
+## 注意：
+
+### 1.创建空间
+
+创建空间时若使用`catkin build`则在之后编译文件时也使用`catkin build`
+
+创建空间时若使用`catkin_make`则在之后编译文件时也使用`catkin_make`
+
+### 2.无人机仿真报错问题
+
+需要使用px4固件版本为 v1.10
+
+更换固件版本方法：
+
+1. `cd Firmware`
+2. `git submodule update --init --recursive`
+3. `git checkout v1.10.0`
+4. `make distclean`
+5. `make px4_sitl_default gazebo`

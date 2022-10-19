@@ -10,8 +10,6 @@ date: 2022-10-19 13:52:28
 
 ## Ubuntu 升级 python 版本
 
-### PX4 v1.10.0 版本在编译时需要升级python版本才能编译成功
-
 [参考](https://blog.csdn.net/caokun_8341/article/details/91380668)
 
 Ubuntu 默认安装了python2.7
@@ -45,3 +43,25 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150
 ```
 
 再输入`python`查看python版本
+
+## 注意：
+
+### 1.PX4 v1.10.0 版本在编译时需要升级python版本才能编译成功
+
+### 2.python版本在升级之后启动roscore报错
+
+roscore提示“ModuleNotFoundError: No module named ‘defusedxml‘”
+
+错误原因是python连接到了python3.x上了，要想正确使用ros, python应该连接到python2.7上，解决步骤如下。
+
+第一步：执行：`ls -n /usr/bin/python`
+
+发现python软链接到了python3.7
+
+第二步删除软链接：`sudo rm -rf /usr/bin/python`
+
+第三步：然后再重新建立到python2.7的软链接：
+
+`sudo ln -s /usr/bin/python2.7 /usr/bin/python`
+
+第四步：问题解决。
