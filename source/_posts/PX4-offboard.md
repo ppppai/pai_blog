@@ -179,6 +179,10 @@ rosrun offboard_pkg offboard_node
 
 ### 2.无人机仿真报错问题
 
+编译时报错`WARN  [mavlink] SET_POSITION_TARGET_LOCAL_NED force not supported	`
+
+解决方法：
+
 需要使用px4固件版本为 v1.10
 
 更换固件版本方法：
