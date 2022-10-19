@@ -1,9 +1,10 @@
 ---
 title: PX4 offboard
 categories:
-  - null
+  - PX4
 tags:
-  - null
+  - PX4
+  - ROS
 date: 2022-10-18 15:39:06
 ---
 
