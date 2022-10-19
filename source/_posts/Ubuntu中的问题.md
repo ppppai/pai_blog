@@ -10,6 +10,8 @@ date: 2022-10-19 13:52:28
 
 ## Ubuntu 升级 python 版本
 
+### PX4 v1.10.0 版本在编译时需要升级python版本才能编译成功
+
 Ubuntu 默认安装了python2.7
 
 输入命令`python`，可以查看当前python版本
