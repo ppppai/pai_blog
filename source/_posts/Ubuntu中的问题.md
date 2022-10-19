@@ -12,6 +12,8 @@ date: 2022-10-19 13:52:28
 
 ### PX4 v1.10.0 版本在编译时需要升级python版本才能编译成功
 
+[参考](https://blog.csdn.net/caokun_8341/article/details/91380668)
+
 Ubuntu 默认安装了python2.7
 
 输入命令`python`，可以查看当前python版本
