@@ -25,6 +25,8 @@ PX4编译报错:
 
 [Ubuntu18.04.5安装ROS melodic 无法定位软件包](https://blog.csdn.net/xu19950525/article/details/108478884)
 
+[git pull时：对下列文件的本地修改将被合并操作覆盖](https://blog.csdn.net/u010565037/article/details/108601956)
+
 
 
 ## PX4开发
