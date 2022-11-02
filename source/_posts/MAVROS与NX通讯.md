@@ -13,13 +13,13 @@ date: 2022-11-01 21:08:24
 
 # 真机
 
-## 串口
+## 1.串口
 
 [通过MAVROS连接机载电脑（NANO/TX2/NX）与Pixhawk](https://zhuanlan.zhihu.com/p/364390798)
 
 ### 1.配置Pixhawk上的Telem2作为MAVLINK端口
 
-==在QGC中设置参数==
+**在QGC中设置参数**
 
 - `MAV_1_CONFIG`= `TELEM 2`
 - `MAV_1_MODE` = `Onboard`
@@ -107,7 +107,7 @@ rosrun offb_ctrl offb_ctrl_node
 
 
 
-## USB连接
+## 2.USB连接
 
 PX4的microUSB串口通过数据线连接电脑的USB口，同时，电池给PX4板供电。在电脑中输入下命令检查：
 
@@ -123,13 +123,13 @@ roslaunch mavros px4.launch fcu_url:=/dev/ttyACM0 gcs_url:=udp-b://@
 
 
 
-## 通讯中需要注意的地方
+## 3.通讯中需要注意的地方
 
-### PX4固件更换
+### 1.PX4固件更换
 
 [px4固件版本](https://github.com/PX4/PX4-Autopilot/releases?page=3)
 
-### MAVROS坐标系
+### 2.MAVROS坐标系
 
 FCU 使用 NED 框架，ROS 使用 ENU 框架。
 Mavros 负责两帧之间的转换。
@@ -138,7 +138,7 @@ Mavros 负责两帧之间的转换。
 
 ![](image-20221101205317106.png)
 
-### 提高IMU发布频率
+### 3.提高IMU发布频率
 
 [提高mavros中IMU话题的发布频率](https://blog.csdn.net/qq_38649880/article/details/89419736)
 
@@ -164,11 +164,11 @@ rosrun mavros mavcmd long 511 31 10000 0 0 0 0 0
 
 > 待解决：如何集成到launch中
 
-### 发布位置信息
+### 4.发布位置信息
 
 使用`local_pos_pub.publish(pose);`
 
-### 掩码设置
+### 5.掩码设置
 
 [PX4 offboard模式能接收的mavros指令（转载，如果同时发送期望位置和期望速度，是位置控制，速度作为前馈。现在才真正理清楚）](https://blog.csdn.net/sinat_16643223/article/details/120746386)
 
@@ -181,7 +181,7 @@ rosrun mavros mavcmd long 511 31 10000 0 0 0 0 0
 - p全给+a全给、pz+a全给。总之a必须全给，如果不想给，就给前馈0。和v类似。反正高度环和yaw、yaw_rate是单独控制的，可以组合，但是x、y必须同时给出，有时也会影响到z。
 - p全给+v全给+a全给。
 
-### PX4 mavros可以切换的模式
+### 6.PX4 mavros可以切换的模式
 
 ```
 //! PX4 custom mode -> string
@@ -207,7 +207,7 @@ static const cmode_map px4_cmode_map{{
 
 
 
-## 特别注意
+## 4.特别注意
 
 1. 不要用程序切offboard模式！！！
 2. 不要用程序切offboard模式！！！
