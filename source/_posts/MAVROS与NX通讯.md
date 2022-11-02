@@ -3,9 +3,11 @@ title: MAVROS与NX通讯
 categories:
   - PX4
 tags:
-  - px4
+  - PX4
 date: 2022-11-01 21:08:24
 ---
+
+[toc]
 
 [常用MAVROS话题和服务](https://zhuanlan.zhihu.com/p/364872655)
 
@@ -134,7 +136,7 @@ Mavros 负责两帧之间的转换。
 所以如果你想向 FCU 发送一个设定点，它必须在 ENU 帧中定义（X 向前和 Z 向上），Mavros 将在 NED 坐标中进行转换。
 相反，当你想读取四旋翼的当前位姿时，你可以使用mavros/local_position/pose，mavros会做转换，这样你就可以读取ENU中的位姿
 
-![image-20221101205317106](MAVROS与NX通讯/image-20221101205317106.png)
+![](image-20221101205317106.png)
 
 ### 提高IMU发布频率
 
@@ -160,11 +162,48 @@ rosrun mavros mavcmd long 511 31 10000 0 0 0 0 0
 
 ==如果想要提到更高的频率只需要减小`10000`这个参数，这个就是设置时间间隔的现在间隔为10000us所以是100hz。==
 
-#### 待解决：如何集成到launch中
+> 待解决：如何集成到launch中
 
 ### 发布位置信息
 
 使用`local_pos_pub.publish(pose);`
+
+### 掩码设置
+
+[PX4 offboard模式能接收的mavros指令（转载，如果同时发送期望位置和期望速度，是位置控制，速度作为前馈。现在才真正理清楚）](https://blog.csdn.net/sinat_16643223/article/details/120746386)
+
+==谁被掩谁就是NaN，谁没被掩谁就被**px4**接受为setpoint==
+
+就v1.11.3来说，掩码的使用还并不规范，并不是掩了就一定不接收，不掩就一定被接收，整个offboard下的接收setpoint是比较混乱的。可行的组合如下：
+
+- 单独的p、v、acc是没问题的，但是要求x、y、z方向的同时给出。acc是转化为了四元数和归一化油门（读[PositionControl.cpp](https://hub.fastgit.org/PX4/PX4-Autopilot/blob/master/src/modules/mc_pos_control/PositionControl/PositionControl.cpp)，由悬停油门线性化估计）。给p、v时10-20Hz就行，给加速度或者角度时需要50-100Hz，否则不会按照期望的加速度来飞行的！
+- p全给+v全给、pz+v全给。全给指x、y、z同时给出。总之v必须全给，如果不想给，就给前馈0。这其实是v1.11.3中mavlink_receiver**.cpp**和FlightTaskOffborad**.cpp**中掩码判断不对导致的。
+- p全给+a全给、pz+a全给。总之a必须全给，如果不想给，就给前馈0。和v类似。反正高度环和yaw、yaw_rate是单独控制的，可以组合，但是x、y必须同时给出，有时也会影响到z。
+- p全给+v全给+a全给。
+
+### PX4 mavros可以切换的模式
+
+```
+//! PX4 custom mode -> string
+static const cmode_map px4_cmode_map{{
+	{ px4::define_mode(px4::custom_mode::MAIN_MODE_MANUAL),           "MANUAL" },
+	{ px4::define_mode(px4::custom_mode::MAIN_MODE_ACRO),             "ACRO" },
+	{ px4::define_mode(px4::custom_mode::MAIN_MODE_ALTCTL),           "ALTCTL" },
+	{ px4::define_mode(px4::custom_mode::MAIN_MODE_POSCTL),           "POSCTL" },
+	{ px4::define_mode(px4::custom_mode::MAIN_MODE_OFFBOARD),         "OFFBOARD" },
+	{ px4::define_mode(px4::custom_mode::MAIN_MODE_STABILIZED),       "STABILIZED" },
+	{ px4::define_mode(px4::custom_mode::MAIN_MODE_RATTITUDE),        "RATTITUDE" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_MISSION), "AUTO.MISSION" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_LOITER),  "AUTO.LOITER" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_RTL),     "AUTO.RTL" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_LAND),    "AUTO.LAND" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_RTGS),    "AUTO.RTGS" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_READY),   "AUTO.READY" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_TAKEOFF), "AUTO.TAKEOFF" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_FOLLOW_TARGET), "AUTO.FOLLOW_TARGET" },
+	{ px4::define_mode_auto(px4::custom_mode::SUB_MODE_AUTO_PRECLAND), "AUTO.PRECLAND" },
+}};
+```
 
 
 
