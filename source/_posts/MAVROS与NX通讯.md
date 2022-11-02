@@ -19,7 +19,7 @@ date: 2022-11-01 21:08:24
 
 ### 1.配置Pixhawk上的Telem2作为MAVLINK端口
 
-**在QGC中设置参数**
+>  在QGC中设置参数
 
 - `MAV_1_CONFIG`= `TELEM 2`
 - `MAV_1_MODE` = `Onboard`
@@ -160,7 +160,7 @@ rosrun mavros mavcmd long 511 105 10000 0 0 0 0 0
 rosrun mavros mavcmd long 511 31 10000 0 0 0 0 0
 ```
 
-==如果想要提到更高的频率只需要减小`10000`这个参数，这个就是设置时间间隔的现在间隔为10000us所以是100hz。==
+> 如果想要提到更高的频率只需要减小`10000`这个参数，这个就是设置时间间隔的现在间隔为10000us所以是100hz。
 
 > 待解决：如何集成到launch中
 
@@ -172,7 +172,7 @@ rosrun mavros mavcmd long 511 31 10000 0 0 0 0 0
 
 [PX4 offboard模式能接收的mavros指令（转载，如果同时发送期望位置和期望速度，是位置控制，速度作为前馈。现在才真正理清楚）](https://blog.csdn.net/sinat_16643223/article/details/120746386)
 
-==谁被掩谁就是NaN，谁没被掩谁就被**px4**接受为setpoint==
+>  谁被掩谁就是NaN，谁没被掩谁就被px4接受为setpoint
 
 就v1.11.3来说，掩码的使用还并不规范，并不是掩了就一定不接收，不掩就一定被接收，整个offboard下的接收setpoint是比较混乱的。可行的组合如下：
 
